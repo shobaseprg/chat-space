@@ -54,7 +54,6 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true, add_index|
 |name|string|null: false, unique: true, add_index|
 ### Association
 - has_many :messages
