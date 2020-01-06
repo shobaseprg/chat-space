@@ -1,0 +1,30 @@
+.side-bar
+  .side-bar__top
+    .side-bar__top__items
+      .side-bar__top__items__name
+        = current_user.name
+      .side-bar__top__items__icons
+        .side-bar__top__items__icons__new-group
+          =link_to "#" do
+            = icon("fas", "edit")
+        .side-bar__top__items__icons__edit-user
+          = link_to edit_user_path(current_user) do
+            = icon("fas", "cog")
+  .side-bar__group-list
+    .side-bar__group-list__group-message
+      %p.group-name
+        techcamp1
+      %p.group-mes
+        まだ、メッセージがありません
+    .side-bar__group-list__group-message
+      %p.group-name
+        techcamp2
+      %p.group-mes
+        まだ、メッセージがありません
+    .side-bar__group-list__group-message
+      %p.group-name
+        techcamp3
+      %p.group-mes
+        まだ、メッセージがありません
+
+            
