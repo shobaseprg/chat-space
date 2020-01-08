@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    # sogoauojrlkewajoufoaudiufa
 
   private
   def group_params
