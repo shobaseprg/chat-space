@@ -1,0 +1,37 @@
+.main-chat
+  .main-chat__group-info
+    .main-chat__group-info__box
+      .main-chat__group-info__box__group-name
+        =@group.name
+      .main-chat__group-info__box__members
+        Member:
+        - @group.users.each do |user|
+          = user.name
+    .main-chat__group-info__edit_btn
+      =link_to "/groups/#{@group.id}/edit" do
+        edit
+
+  
+  .main-chat__message-list
+    = render @messages
+
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
+
+
+
+
+
+
+
+
+
+
+
+
