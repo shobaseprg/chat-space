@@ -2,30 +2,19 @@
   .main-chat__group-info
     .main-chat__group-info__box
       .main-chat__group-info__box__group-name
-        test
+        =@group.name
       .main-chat__group-info__box__members
-        Member:masa
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .main-chat__group-info__edit_btn
-      =link_to "#" do
+      =link_to "/groups/#{@group.id}/edit" do
         edit
-  .main-chat__message-list
-    .main-chat__message-list__message-box
-      .main-chat__message-list__message-box__name-date
-        %p.name
-          masa
-        %p.date
-          2019.12.30(mon) 21:03:18
-      %p.message
-        おはよう
 
-    .main-chat__message-list__message-box
-      .main-chat__message-list__message-box__name-date
-        %p.name
-          masa
-        %p.date
-          2019.12.30(mon) 21:03:50
-      %p.message
-        今日から雨
+  
+  .main-chat__message-list
+    = render @messages
+
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
