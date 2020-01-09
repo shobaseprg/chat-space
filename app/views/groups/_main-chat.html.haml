@@ -26,14 +26,14 @@
           2019.12.30(mon) 21:03:50
       %p.message
         今日から雨
-  .main-chat__message-form
-    %form 
-      %input.text{type:"text", placeholder:"type a message"}
-      %label{class: "box-image"}
-        = icon('fas', 'image')
-        %input.image{type: "file"}
-    %input.submit{type:"submit" ,value:"send"}
-
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
 
 
 
