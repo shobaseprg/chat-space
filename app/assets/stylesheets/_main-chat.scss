@@ -39,6 +39,7 @@
     background-color:#fafafa;
     height:calc(100vh - 190px);
     padding-top:35px;
+    overflow: scroll;
     &__message-box{
       margin:35px 0px 46px 40px;
       &__name-date{
