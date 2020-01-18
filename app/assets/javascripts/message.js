@@ -2,8 +2,7 @@ $(function(){
   
   var reloadMessages = function() {
     last_message_id = $('.message:last').data("message-id");    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-  // .messageというクラスがつけられた全てのノードのうち一番最後のノード、という意味になります。
-  // （/Users/us/projects/chat-space/app/views/messages/_message.html.haml 参照）
+
   console.log(last_message_id);
     $.ajax({
       url: "api/messages",//ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
