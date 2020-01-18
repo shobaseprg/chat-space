@@ -1,11 +1,15 @@
-.main-chat__message-list__message-box
-  .main-chat__message-list__message-box__name-date
-    %p.name
-      = message.user.name
-      %p.date
-        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-  %p.message
-    - if message.content.present?
-      %p.lower-message__content
-        = message.content
-    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+.message{data: {message: {id: message.id}}}
+  -# ↑  カスタムデータ属性
+    message-box一つ一つにidを与えている。
+  .main-chat__message-list__message-box
+    -# ↑  message一つ一つの箱
+    .main-chat__message-list__message-box__name-date
+      %p.name
+        = message.user.name
+        %p.date
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    %p.message-content
+      - if message.content.present?
+        %p.lower-message__content
+          = message.content
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
