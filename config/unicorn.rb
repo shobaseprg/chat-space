@@ -37,6 +37,7 @@ before_fork do |server, worker|
 
   if run_once
     run_once = false # prevent from firing again
+    
   end
 
   old_pid = "#{server.config[:pid]}.oldbin"
